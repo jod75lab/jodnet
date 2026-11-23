@@ -9,7 +9,8 @@ function hostname(url: string): string {
 }
 ---
 
-<div class="link-hub not-content" data-link-hub data-default-profile={defaultProfile} data-cookie-name={profileCookieName} data-cookie-path={basePath}>
+<!-- Keep profile preference attributes distinct from cookie-banner filter selectors. -->
+<div class="link-hub not-content" data-link-hub data-default-profile={defaultProfile} data-profile-cookie-name={profileCookieName} data-profile-cookie-path={basePath}>
   <div class="hub-toolbar">
     <div class="profile-picker">
       <span class="field-caption" id="profile-label">PROFILE</span>
@@ -78,7 +79,7 @@ function hostname(url: string): string {
     const hub = document.querySelector('[data-link-hub]');
     let profile = hub.dataset.defaultProfile;
     try {
-      const value = document.cookie.split(';').map((item) => item.trim()).find((item) => item.startsWith(`${hub.dataset.cookieName}=`))?.split('=').slice(1).join('=');
+      const value = document.cookie.split(';').map((item) => item.trim()).find((item) => item.startsWith(`${hub.dataset.profileCookieName}=`))?.split('=').slice(1).join('=');
       const saved = value ? decodeURIComponent(value) : '';
       if ([...hub.querySelectorAll('[data-profile-panel]')].some((panel) => panel.dataset.profilePanel === saved)) profile = saved;
     } catch { /* Keep the default when cookies are unavailable or malformed. */ }

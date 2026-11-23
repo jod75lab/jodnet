@@ -28,8 +28,8 @@ if (hub) {
   function rememberProfile(id: string) {
     try {
       const secure = location.protocol === 'https:' ? '; Secure' : '';
-      document.cookie = `${hub!.dataset.cookieName}=${encodeURIComponent(id)}; Path=${hub!.dataset.cookiePath}; Max-Age=31536000; SameSite=Lax${secure}`;
-      return document.cookie.split(';').some((part) => part.trim() === `${hub!.dataset.cookieName}=${encodeURIComponent(id)}`);
+      document.cookie = `${hub!.dataset.profileCookieName}=${encodeURIComponent(id)}; Path=${hub!.dataset.profileCookiePath}; Max-Age=31536000; SameSite=Lax${secure}`;
+      return document.cookie.split(';').some((part) => part.trim() === `${hub!.dataset.profileCookieName}=${encodeURIComponent(id)}`);
     } catch {
       return false;
     }
