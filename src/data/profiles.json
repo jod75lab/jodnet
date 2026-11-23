@@ -7,35 +7,92 @@
       "description": "A little space for your everyday internet.",
       "lanes": [
         {
-          "title": "Everyday",
+          "title": "Everyday & social",
+          "mode": "links",
           "links": [
-            { "title": "Hourly Prayer", "url": "https://www.hourlyprayer.com"},
-            { "title": "Universalis", "url": "https://www.universalis.com"},
-            { "title": "Bible", "url": "https://www.bible.com"},
             { "title": "Google", "url": "https://www.google.com/" },
-            { "title": "Gmail", "url": "https://mail.google.com/" },
-            { "title": "Google Calendar", "url": "https://calendar.google.com/" },
-            { "title": "Google Drive", "url": "https://drive.google.com/" },
-            { "title": "Google Maps", "url": "https://maps.google.com/" }
+            { "title": "Gmail", "url": "https://mail.google.com" },
+            { "title": "Google Calendar", "url": "https://calendar.google.com" },
+            { "title": "Google Drive", "url": "https://drive.google.com" },
+            { "title": "Outlook", "url": "https://www.outlook.com/" },
+            { "title": "Microsoft Office", "url": "https://www.office.com/?auth=2" },
+            { "title": "WhatsApp", "url": "https://web.whatsapp.com/" },
+            { "title": "Facebook", "url": "https://www.facebook.com/" },
+            { "title": "Instagram", "url": "https://www.instagram.com/" },
+            { "title": "Amazon UK", "url": "https://www.amazon.co.uk/" },
+            { "title": "Amazon IT", "url": "https://www.amazon.it/" },
+            { "title": "Amazon DE", "url": "https://www.amazon.de/" }
           ]
         },
         {
-          "title": "Web & research",
+          "title": "Spirituality",
+          "mode": "links",
           "links": [
-            { "title": "ChatGPT", "url": "https://chatgpt.com/" },
-            { "title": "GitHub", "url": "https://github.com/" },
-            { "title": "Wikipedia", "url": "https://www.wikipedia.org/" },
-            { "title": "Workflowy", "url": "https://workflowy.com/" }
+            { "title": "Hourly Prayer", "url": "https://www.hourlyprayer.com" },
+            { "title": "Universalis", "url": "https://www.universalis.com/" },
+            { "title": "Bible", "url": "https://www.bible.com" },
+            { "title": "Bible Gateway", "url": "https://www.biblegateway.com/" },
+            { "title": "Laikos", "url": "https://www.laikos.org/" },
+            { "title": "MasterLectures", "url": "https://masterlectures.zondervanacademic.com/" },
+            { "title": "Greek Study Tool", "url": "https://www.perseus.tufts.edu/hopper/morph" },
+            { "title": "BAR", "url": "https://www.biblicalarchaeology.org/" },
+            { "title": "NEA", "url": "https://www.journals.uchicago.edu/toc/nea/current" }
           ]
         },
         {
-          "title": "Learning",
+          "title": "Reading & learning",
+          "mode": "links",
           "links": [
+            { "title": "SN Mag", "url": "https://www.sciencenewsdigital.org/sciencenews/" },
+            { "title": "Science news", "url": "https://www.sciencenews.org/" },
+            { "title": "New Scientist", "url": "https://www.newscientist.com/" },
+            { "title": "Kindle Online", "url": "https://read.amazon.com/kindle-library?" },
+            { "title": "UoL Alumni", "url": "https://london.ac.uk/alumni/WC1E" },
             { "title": "TED", "url": "https://www.ted.com/" },
             { "title": "MIT News", "url": "https://news.mit.edu/topic/computers" },
             { "title": "Nature", "url": "https://www.nature.com/subjects/computer-science" },
             { "title": "O'Reilly", "url": "https://learning.oreilly.com/home/" },
             { "title": "Pluralsight", "url": "https://www.pluralsight.com/" }
+          ]
+        },
+        {
+          "title": "Technology & making",
+          "mode": "links",
+          "links": [
+            { "title": "ChatGPT", "url": "https://chatgpt.com/" },
+            { "title": "Perplexity AI", "url": "https://www.perplexity.ai/" },
+            { "title": "GitHub", "url": "https://github.com/" },
+            { "title": "Microsoft Docs", "url": "https://docs.microsoft.com/en-us/" },
+            { "title": "Microsoft MSDN", "url": "https://visualstudio.microsoft.com/subscriptions/" },
+            { "title": "JupyterLab", "url": "http://raspberrypi:8888/lab" },
+            { "title": "Creative Fabrica", "url": "https://www.creativefabrica.com/" },
+            { "title": "Thingiverse", "url": "https://www.thingiverse.com/" },
+            { "title": "Tinkercad", "url": "https://www.tinkercad.com/login" },
+            { "title": "OctoPi", "url": "http://octopi.lan/" }
+          ]
+        },
+        {
+          "title": "Home & websites",
+          "mode": "links",
+          "links": [
+            { "title": "HA - Avalon", "url": "https://jodneta.duckdns.org/lovelace/0" },
+            { "title": "HA - Camelia", "url": "https://jodnetha.duckdns.org/00-camelia/0" },
+            { "title": "Aquarium Control", "url": "http://HLSmartControl/" },
+            { "title": "Gateway", "url": "https://192.168.1.254/" },
+            { "title": "My Cloud", "url": "http://WDMyCloudMirror/" },
+            { "title": "MSSP Oratory NAS", "url": "http://bit.ly/3mHK2i6" },
+            { "title": "Noti u Hsibijiet", "url": "https://www.notiuhsibijiet.com/wp-admin" },
+            { "title": "Clounce", "url": "https://www.clounce.com/" },
+            { "title": "MSSP", "url": "https://web.depiromssp.org/wp-admin/" }
+          ]
+        },
+        {
+          "title": "Shared folders",
+          "mode": "copy",
+          "links": [
+            { "title": "3D Printer", "url": "\\\\wdmycloudmirror\\Public\\Shared Projects\\3D Printer" },
+            { "title": "CNC", "url": "\\\\wdmycloudmirror\\Public\\Shared Projects\\CNC" },
+            { "title": "e-books", "url": "\\\\wdmycloudmirror\\Public\\Shared E-books" }
           ]
         }
       ]
