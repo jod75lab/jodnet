@@ -1,0 +1,91 @@
+---
+import HubIcon from './HubIcon.astro';
+import { profiles, defaultProfile, profileCookieName } from '../lib/profiles';
+
+const basePath = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const laneHues = [42, 155, 208, 230, 280, 18, 185];
+function hostname(url: string): string {
+  return new URL(url).hostname.replace(/^www\./, '');
+}
+---
+
+<div class="link-hub not-content" data-link-hub data-default-profile={defaultProfile} data-cookie-name={profileCookieName} data-cookie-path={basePath}>
+  <div class="hub-toolbar">
+    <div class="profile-picker">
+      <span class="field-caption" id="profile-label">PROFILE</span>
+      <div class="profile-buttons" role="group" aria-labelledby="profile-label">
+        {profiles.map((profile) => (
+          <button type="button" class="profile-button" data-profile-button={profile.id} aria-pressed={profile.id === defaultProfile} aria-controls={`profile-${profile.id}`}>
+            <HubIcon name={profile.id === 'home' ? 'home' : profile.id === 'work' ? 'work' : 'profile'} />
+            {profile.name}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div class="search-field">
+      <HubIcon name="search" />
+      <label class="sr-only" for="link-search">Filter links in the selected profile</label>
+      <input id="link-search" type="search" placeholder="Find a link…" autocomplete="off" spellcheck="false" />
+    </div>
+  </div>
+
+  {profiles.map((profile) => (
+    <section id={`profile-${profile.id}`} class="profile-panel" data-profile-panel={profile.id} aria-label={`${profile.name} links`} hidden={profile.id !== defaultProfile}>
+      <div class="profile-summary">
+        <p>{profile.description}</p>
+        <span>{profile.lanes.reduce((total, lane) => total + lane.links.length, 0)} links <span aria-hidden="true">/</span> {profile.lanes.length} lanes</span>
+      </div>
+      <div class="lane-list">
+        {profile.lanes.map((lane, index) => (
+          <section class="lane" data-lane style={`--lane-hue: ${laneHues[index % laneHues.length]}`} aria-labelledby={`${profile.id}-lane-${index}`}>
+            <div class="lane-heading">
+              <h2 id={`${profile.id}-lane-${index}`}>{lane.title}</h2>
+              <span data-lane-count>{lane.links.length} {lane.links.length === 1 ? 'link' : 'links'}</span>
+            </div>
+            <div class="link-grid">
+              {lane.links.map((link) => lane.mode === 'copy' ? (
+                <button class="link-card copy-card" type="button" data-link-card data-search={`${lane.title} ${link.title} ${link.url}`.toLowerCase()} data-copy={link.url} title={`Copy ${link.url}`}>
+                  <span class="link-mark"><HubIcon name="copy" /></span>
+                  <span class="link-title">{link.title}</span>
+                  <span class="copy-hint" aria-hidden="true">Copy</span>
+                </button>
+              ) : (
+                <a class="link-card" data-link-card data-search={`${lane.title} ${link.title} ${link.url}`.toLowerCase()} href={link.url} target="_blank" rel="noopener noreferrer" title={`${link.title} — ${hostname(link.url)} (opens in a new tab)`}>
+                  <span class="link-mark site-icon" aria-hidden="true">
+                    <span class="icon-fallback">{link.title.slice(0, 1).toUpperCase()}</span>
+                    <img class="favicon" src={new URL('/favicon.ico', link.url).href} alt="" width="20" height="20" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                  </span>
+                  <span class="link-title">{link.title}</span>
+                  <span class="link-action"><HubIcon name="arrow" /></span>
+                  <span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      {profile.lanes.every((lane) => lane.links.length === 0) && <p class="profile-empty">No links yet. Use “Edit your links” below to add your first lane.</p>}
+    </section>
+  ))}
+  <p class="no-results" hidden>No links found. Try another search.</p>
+  <p class="hub-feedback sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+  <noscript><p class="noscript-note">Enable JavaScript to switch profiles and filter links. All profiles are shown.</p><style>[data-link-hub] [data-profile-panel][hidden] { display: block !important; } .hub-toolbar { display: none; }</style></noscript>
+</div>
+
+<!-- Restore the profile while the page is being parsed, before the main script runs. -->
+<script is:inline>
+  {
+    const hub = document.querySelector('[data-link-hub]');
+    let profile = hub.dataset.defaultProfile;
+    try {
+      const value = document.cookie.split(';').map((item) => item.trim()).find((item) => item.startsWith(`${hub.dataset.cookieName}=`))?.split('=').slice(1).join('=');
+      const saved = value ? decodeURIComponent(value) : '';
+      if ([...hub.querySelectorAll('[data-profile-panel]')].some((panel) => panel.dataset.profilePanel === saved)) profile = saved;
+    } catch { /* Keep the default when cookies are unavailable or malformed. */ }
+    hub.dataset.activeProfile = profile;
+    hub.querySelectorAll('[data-profile-panel]').forEach((panel) => { panel.hidden = panel.dataset.profilePanel !== profile; });
+    hub.querySelectorAll('[data-profile-button]').forEach((button) => { button.setAttribute('aria-pressed', String(button.dataset.profileButton === profile)); });
+  }
+</script>
+
+<script src="../scripts/hub.ts"></script>

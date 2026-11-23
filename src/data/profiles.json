@@ -1,0 +1,94 @@
+{
+  "defaultProfile": "home",
+  "profiles": [
+    {
+      "id": "home",
+      "name": "Home",
+      "description": "A little space for your everyday internet.",
+      "lanes": [
+        {
+          "title": "Everyday",
+          "links": [
+            { "title": "Hourly Prayer", "url": "https://www.hourlyprayer.com"},
+            { "title": "Universalis", "url": "https://www.universalis.com"},
+            { "title": "Bible", "url": "https://www.bible.com"},
+            { "title": "Google", "url": "https://www.google.com/" },
+            { "title": "Gmail", "url": "https://mail.google.com/" },
+            { "title": "Google Calendar", "url": "https://calendar.google.com/" },
+            { "title": "Google Drive", "url": "https://drive.google.com/" },
+            { "title": "Google Maps", "url": "https://maps.google.com/" }
+          ]
+        },
+        {
+          "title": "Web & research",
+          "links": [
+            { "title": "ChatGPT", "url": "https://chatgpt.com/" },
+            { "title": "GitHub", "url": "https://github.com/" },
+            { "title": "Wikipedia", "url": "https://www.wikipedia.org/" },
+            { "title": "Workflowy", "url": "https://workflowy.com/" }
+          ]
+        },
+        {
+          "title": "Learning",
+          "links": [
+            { "title": "TED", "url": "https://www.ted.com/" },
+            { "title": "MIT News", "url": "https://news.mit.edu/topic/computers" },
+            { "title": "Nature", "url": "https://www.nature.com/subjects/computer-science" },
+            { "title": "O'Reilly", "url": "https://learning.oreilly.com/home/" },
+            { "title": "Pluralsight", "url": "https://www.pluralsight.com/" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "description": "A clear starting point for the working day.",
+      "lanes": [        
+        {          
+          "title": "Web & research",
+          "links": [
+            {"title": "jodNOTES", "url": "http://192.168.34.16:8081"},
+            {"title": "Google", "url": "https://www.google.com/"},
+            {"title": "Aspose", "url": "https://products.aspose.com/"},
+            {"title": "Axcient Portal", "url": "https://partner.axcient.com/login"},
+            {"title": "Broadcom Support", "url": "https://support.broadcom.com/group/ecx/my-dashboard"},
+            {"title": "Broadcom TAP", "url": "https://tap.broadcom.com/"},
+            {"title": "Chat GPT", "url": "https://chatgpt.com/"},
+            {"title": "Github", "url": "https://www.github.com/"}
+          ]
+        },
+        {
+          "title": "Microsoft",
+          "links": [
+            {"title": "Admin Center", "url": "https://admin.microsoft.com/AdminPortal/Home#/homepage"},
+            {"title": "Azure Portal", "url": "https://portal.azure.com/"},
+            {"title": "Message Center", "url": "https://admin.microsoft.com/AdminPortal/Home#/MessageCenter"},
+            {"title": "Microsoft Dev", "url": "https://developer.microsoft.com/en-us/"},
+            {"title": "Microsoft Docs", "url": "https://docs.microsoft.com/en-us/"},
+            {"title": "Microsoft Entra", "url": "https://entra.microsoft.com/"},
+            {"title": "Microsoft MSDN", "url": "https://visualstudio.microsoft.com/subscriptions/"},
+            {"title": "Microsoft Office", "url": "https://www.office.com/?auth=2"},
+            {"title": "Partner Portal", "url": "https://partner.microsoft.com/en-us/dashboard/home"},
+            {"title": "Microsoft Roadmap", "url": "https://www.microsoft.com/en-US/microsoft-365/roadmap"},
+            {"title": "MS Research", "url": "https://www.microsoft.com/en-us/research/"},
+            {"title": "MS RiSE", "url": "https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/"},
+            {"title": "MS News Today", "url": "https://msftnewsnow.com/news/"},
+            {"title": "Skilling Hub", "url": "https://www.skilling-hub.com/"}
+          ]
+        },
+        {
+          "title": "Learning",
+          "links": [
+            {"title": "TED", "url": "https://www.ted.com"},
+            {"title": "MIT", "url": "https://news.mit.edu/topic/computers"},
+            {"title": "Nature", "url": "https://www.nature.com/subjects/computer-science"},
+            {"title": "O'Reilly", "url": "https://learning.oreilly.com/home/"},
+            {"title": "Perlego", "url": "https://www.perlego.com/"},
+            {"title": "PluralSight", "url": "https://www.pluralsight.com/"}        
+          ]
+        }
+      ]
+    }
+  ]
+}
